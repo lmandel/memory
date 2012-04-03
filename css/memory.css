@@ -3,6 +3,20 @@
 .card {
 	width: 75px;
 	height: 100px;
+	position: fixed;
+}
+
+.card .back {
+	width: inherit;
+	height: inherit;
+	float: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 	background-image: url(../images/fflogo.png);
 	-webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
@@ -10,83 +24,141 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
-
-	position: fixed;
-	border-radius: 5px;
-	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-	box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-	-o-transition: all .4s ease-in-out;
+    -webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+    -o-transition: all .4s ease-in-out;
 	-ms-transition: all .4s ease-in-out;
 	-moz-transition: all .4s ease-in-out;
 	-webkit-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 
-.active {
-	-webkit-background-size: -100% auto;
-    -moz-background-size: -100% auto;
-    -o-background-size: -100% auto;
-    background-size: -100% auto;
+.card.active .back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+}
+
+.card .front {
+	width: inherit;
+	height: inherit;
+	float: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 	-webkit-transform: rotateY(-180deg);
 	-moz-transform: rotateY(-180deg);
-	/* -- transition is the magic sauce for animation -- */
-			-o-transition: all .4s ease-in-out;
-			-ms-transition: all .4s ease-in-out;
-			-moz-transition: all .4s ease-in-out;
-			-webkit-transition: all .4s ease-in-out;
-			transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.card.active .front {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+}
+
+#gameboard {
+	
 }
 
 #card0, #card3, #card6, #card9 {
-	left: 100px;
+	position: absolute;
+	left: 0px;
 }
 
 #card1, #card4, #card7, #card10 {
-	left: 185px;
+	position: absolute;
+	left: 85px;
 }
 
 #card2, #card5, #card8, #card11 {
-	left: 270px;
+	postion: absolute;
+	left: 170px;
 }
 
 #card0, #card1, #card2 {
-	top: 100px;
+	top: 0px;
 }
 
 #card3, #card4, #card5 {
-	top: 210px;
+	top: 110px;
 }
 
 #card6, #card7, #card8 {
-	top: 320px;
+	top: 220px;
 }
 
 #card9, #card10, #card11 {
-	top: 430px;
+	top: 330px;
 }
 
-.active.pair0{
-	background-color: blue;
+.active.pair0 .front{
+	background-image: url(../images/summit1.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.active.pair1{
-	background-color: red;
+.active.pair1 .front{
+	background-image: url(../images/summit2.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.active.pair2{
-	background-color: yellow;
+.active.pair2 .front{
+	background-image: url(../images/summit3.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.active.pair3{
-	background-color: orange;
+.active.pair3 .front{
+	background-image: url(../images/summit4.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.active.pair4{
-	background-color: pink;
+.active.pair4 .front{
+	background-image: url(../images/summit5.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.active.pair5{
-	background-color: black;
+.active.pair5 .front{
+	background-image: url(../images/summit6.png);
+	-webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 

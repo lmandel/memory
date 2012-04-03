@@ -23,6 +23,14 @@ function createGameboard(){
 		card.setAttribute("class", "card");
 		gameboardDiv.appendChild(card);
 		card.addEventListener("click", flipCard, false);
+		
+		cardback = document.createElement("div");
+		cardback.setAttribute("class", "back");
+		card.appendChild(cardback);
+		
+		cardfront = document.createElement("div");
+		cardfront.setAttribute("class", "front");
+		card.appendChild(cardfront);
 	}
 }
 
