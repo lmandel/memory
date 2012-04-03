@@ -26,6 +26,8 @@
     background-position: center;
     -webkit-transform: rotateY(0deg);
 	-moz-transform: rotateY(0deg);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
     -o-transition: all .4s ease-in-out;
 	-ms-transition: all .4s ease-in-out;
 	-moz-transition: all .4s ease-in-out;
@@ -53,6 +55,8 @@
 	box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 	-webkit-transform: rotateY(-180deg);
 	-moz-transform: rotateY(-180deg);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
     -o-transition: all .4s ease-in-out;
 	-ms-transition: all .4s ease-in-out;
 	-moz-transition: all .4s ease-in-out;
@@ -102,7 +106,7 @@
 	top: 330px;
 }
 
-.active.pair0 .front{
+.pair0 .front{
 	background-image: url(../images/summit1.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -112,7 +116,7 @@
     background-position: center;
 }
 
-.active.pair1 .front{
+.pair1 .front{
 	background-image: url(../images/summit2.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -122,7 +126,7 @@
     background-position: center;
 }
 
-.active.pair2 .front{
+.pair2 .front{
 	background-image: url(../images/summit3.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -132,7 +136,7 @@
     background-position: center;
 }
 
-.active.pair3 .front{
+.pair3 .front{
 	background-image: url(../images/summit4.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -142,7 +146,7 @@
     background-position: center;
 }
 
-.active.pair4 .front{
+.pair4 .front{
 	background-image: url(../images/summit5.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -152,7 +156,7 @@
     background-position: center;
 }
 
-.active.pair5 .front{
+.pair5 .front{
 	background-image: url(../images/summit6.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;

@@ -44,17 +44,21 @@ function flipCard(){
 		if(pairs[this.id] == pairs[selected.id]){
 			// match made
 			pairsFound++;
+			this.
 			selected = -1;
 		}
 		else{
 			setTimeout(function() {
-				card.setAttribute("class", "card");
-				selected.setAttribute("class", "card");
+				card.setAttribute("class", "card pair" + pairs[card.id]);
+				selected.setAttribute("class", "card pair" + pairs[selected.id]);
 				selected = -1;
 			},1000);
 			
 		}
 		moves++;
+		if(pairsFound == (numCards/2)){
+			alert("You Won in " + moves + " moves!");
+		}
 	}
 }
 
