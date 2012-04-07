@@ -24,6 +24,7 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: white;
     -webkit-transform: rotateY(0deg);
 	-moz-transform: rotateY(0deg);
 	-webkit-transform-style: preserve-3d;
@@ -74,6 +75,8 @@ body {
 	text-align: center;
 	width: 100%;
 	height: 100%;
+	background-image: url(../images/background.png);
+	background-repeat: repeat-x;
 }
 
 #gameboard {
