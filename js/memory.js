@@ -43,15 +43,16 @@ function flipCard(){
 	else{
 		if(pairs[this.id] == pairs[selected.id]){
 			// match made
-			pairsFound++;
-			this.
 			selected = -1;
+			pairsFound++;
 		}
 		else{
+			card1 = card;
+			card2 = selected;
+			selected = -1;
 			setTimeout(function() {
-				card.setAttribute("class", "card pair" + pairs[card.id]);
-				selected.setAttribute("class", "card pair" + pairs[selected.id]);
-				selected = -1;
+				card1.setAttribute("class", "card pair" + pairs[card1.id]);
+				card2.setAttribute("class", "card pair" + pairs[card2.id]);
 			},1000);
 			
 		}
