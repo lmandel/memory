@@ -3,19 +3,60 @@ var pairs = {};
 var selected = -1;
 var pairsFound = 0;
 var moves = 0;
+var status;
 
 function setup(){
+	createMenu();
+	createStatus();
 	createGameboard();
 	assignCardPairs();
 	
 }
 
+function createMenu(){
+	menuDiv = document.getElementById("menu");
+	dMenu = createDifficultyMenu();
+	menuDiv.appendChild(dMenu);
+	
+	resetMenu = document.createElement("div");
+	resetMenu.id = "resetmenu";
+	resetMenu.setAttribute("class", "menu");
+	menuDiv.appendChild(resetMenu);
+}
+
+function createDifficultyMenu(){
+	dMenu = document.createElement("div");
+	dMenu.id = "dmenu";
+	dMenu.setAttribute("class", "menu");
+	easy = document.createElement("div");
+	easy.id = "easy";
+	dMenu.appendChild(easy);
+	medium = document.createElement("div");
+	medium.id = "medium";
+	dMenu.appendChild(medium);
+	hard = document.createElement("div");
+	hard.id = "hard";
+	dMenu.appendChild(hard);
+	return dMenu;
+}
+
+function createStatus(){
+	statusDiv = document.getElementById("status");
+	movesLabel = document.createElement("div");
+	movesLabel.id = "moveslabel";
+	movesLabel.innerHTML = "Moves:";
+	statusDiv.appendChild(movesLabel);
+	
+	movesValue = document.createElement("div");
+	movesValue.id = "movesvalue";
+	movesValue.innerHTML = "0";
+	statusDiv.appendChild(movesValue);
+	
+	status = movesValue;
+}
+
 function createGameboard(){
 	gameboardDiv = document.getElementById("gameboard");
-	menu = document.createElement("div");
-	gameboardDiv.appendChild(menu);
-	status = document.createElement("div");
-	gameboardDiv.appendChild(status);
 	
 	for(var i = 0; i < numCards; i++){
 		card = document.createElement("div");
@@ -57,6 +98,7 @@ function flipCard(){
 			
 		}
 		moves++;
+		status.innerHTML = moves;
 		if(pairsFound == (numCards/2)){
 			alert("You Won in " + moves + " moves!");
 		}
