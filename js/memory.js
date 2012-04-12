@@ -81,6 +81,10 @@ function flipCard(){
 	if(selected == -1){
 		selected = this;
 	}
+	else if (selected == this){
+		// Selected the same card. Do nothing.
+		return;
+	}
 	else{
 		if(pairs[this.id] == pairs[selected.id]){
 			// match made
