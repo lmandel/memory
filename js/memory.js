@@ -1,4 +1,5 @@
 var numCards = 12;
+var cards = {};
 var pairs = {};
 var selected = -1;
 var pairsFound = 0;
@@ -21,6 +22,8 @@ function createMenu(){
 	resetMenu = document.createElement("div");
 	resetMenu.id = "resetmenu";
 	resetMenu.setAttribute("class", "menu");
+	resetMenu.innerHTML = "reset";
+	resetMenu.addEventListener("click", reset, false);
 	menuDiv.appendChild(resetMenu);
 }
 
@@ -72,6 +75,8 @@ function createGameboard(){
 		cardfront = document.createElement("div");
 		cardfront.setAttribute("class", "front");
 		card.appendChild(cardfront);
+		
+		cards[i] = card;
 	}
 }
 
@@ -88,8 +93,11 @@ function flipCard(){
 	else{
 		if(pairs[this.id] == pairs[selected.id]){
 			// match made
+			selected.removeEventListener("click", flipCard, false);
+			card.removeEventListener("click", flipCard, false);
 			selected = -1;
 			pairsFound++;
+			
 		}
 		else{
 			card1 = card;
@@ -124,6 +132,25 @@ function assignCardPairs(){
 		taken[card2] = true;
 		pairs["card"+card1] = i;
 		pairs["card"+card2] = i;
+	}
+}
+
+function reset(){
+	pairs = {};
+	selected = -1;
+	pairsFound = 0;
+	moves = 0;
+	status.innerHTML = moves;
+	resetGameboard();
+	assignCardPairs();
+}
+
+function resetGameboard(){
+	gameboardDiv = document.getElementById("gameboard");
+	
+	for(var i = 0; i < numCards; i++){
+		cards[i].setAttribute("class", "card");
+		cards[i].addEventListener("click", flipCard, false);
 	}
 }
 
