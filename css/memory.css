@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 @media (max-width: 650px){
-	.card {
+	.card, .card-reset {
 		width: 75px;
 		height: 100px;
 	}
-	.card .back, .card .front {
+	.card-back, .card-back-active, .card-front, .card-front-active {
 		border-radius: 5px;
 		-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
 		-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
@@ -31,11 +31,11 @@
 }
 
 @media (min-width: 650px){
-	.card {
+	.card, .card-reset {
 		width: 100px;
 		height: 133px;
 	}
-	.card .back, .card .front {
+	.card-back, .card-back-active, .card-front, .card-front-active {
 		border-radius: 10px;
 		-moz-box-shadow: 0 2px 10px rgba(0,0,0,0.9);
 		-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.9);
@@ -61,11 +61,11 @@
 	}
 }
 
-.card {
+.card, .card-reset {
 	position: fixed;
 }
 
-.card .back {
+.card-back, .card-back-active {
 	width: inherit;
 	height: inherit;
 	float: none;
@@ -93,12 +93,12 @@
 	-webkit-backface-visibility: hidden;
 }
 
-.card.active .back {
+.card-back-active {
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 }
 
-.card .front {
+.card-front, .card-front-active {
 	width: inherit;
 	height: inherit;
 	float: none;
@@ -118,12 +118,12 @@
 	-webkit-backface-visibility: hidden;
 }
 
-.card.active .front {
+.card-front-active {
 	-webkit-transform: rotateY(0deg);
 	-moz-transform: rotateY(0deg);
 }
 
-.card.reset {
+.card-reset {
 	-webkit-transform: rotateY(720deg);
 	-moz-transform: rotateY(720deg);
 	-webkit-transform-style: preserve-3d;
@@ -137,7 +137,7 @@
 	-webkit-backface-visibility: hidden;
 }
 
-.card.reset .front {
+.card-reset > .card-front {
 	background-image: url(../images/fflogosmall.png);
 	-webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
@@ -185,7 +185,7 @@ body {
 #card9, #card10, #card11 {
 }
 
-.pair0 .front{
+.pair0 > .card-front, .pair0 > .card-front-active{
 	background-image: url(../images/summit1.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -195,7 +195,7 @@ body {
     background-position: center;
 }
 
-.pair1 .front{
+.pair1 > .card-front, .pair1 > .card-front-active{
 	background-image: url(../images/summit2.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -205,7 +205,7 @@ body {
     background-position: center;
 }
 
-.pair2 .front{
+.pair2 > .card-front, .pair2 > .card-front-active{
 	background-image: url(../images/summit3.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -215,7 +215,7 @@ body {
     background-position: center;
 }
 
-.pair3 .front{
+.pair3 > .card-front, .pair3 > .card-front-active{
 	background-image: url(../images/summit4.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -225,7 +225,7 @@ body {
     background-position: center;
 }
 
-.pair4 .front{
+.pair4 > .card-front, .pair4 > .card-front-active{
 	background-image: url(../images/summit5.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -235,7 +235,7 @@ body {
     background-position: center;
 }
 
-.pair5 .front{
+.pair5 > .card-front, .pair5 > .card-front-active{
 	background-image: url(../images/summit6.png);
 	-webkit-background-size: auto 100%;
     -moz-background-size: auto 100%;

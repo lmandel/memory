@@ -69,11 +69,11 @@ function createGameboard(){
 		card.addEventListener("click", flipCard, false);
 		
 		cardback = document.createElement("div");
-		cardback.setAttribute("class", "back");
+		cardback.setAttribute("class", "card-back");
 		card.appendChild(cardback);
 		
 		cardfront = document.createElement("div");
-		cardfront.setAttribute("class", "front");
+		cardfront.setAttribute("class", "card-front");
 		card.appendChild(cardfront);
 		
 		cards[i] = card;
@@ -83,6 +83,8 @@ function createGameboard(){
 function flipCard(){
 	card = this;
 	card.setAttribute("class", "card active pair" + pairs[this.id]);
+	card.firstChild.setAttribute("class", "card-back-active");
+	card.lastChild.setAttribute("class", "card-front-active");
 	if(selected == -1){
 		selected = this;
 	}
@@ -105,7 +107,11 @@ function flipCard(){
 			selected = -1;
 			setTimeout(function() {
 				card1.setAttribute("class", "card pair" + pairs[card1.id]);
+				card1.firstChild.setAttribute("class", "card-back");
+				card1.lastChild.setAttribute("class", "card-front");
 				card2.setAttribute("class", "card pair" + pairs[card2.id]);
+				card2.firstChild.setAttribute("class", "card-back");
+				card2.lastChild.setAttribute("class", "card-front");
 			},1000);
 			
 		}
@@ -153,12 +159,14 @@ function resetCard(id, pairs){
 	if((act = cards[id].getAttribute("class").indexOf("active")) > 0){
 		//cards[id].setAttribute("class", "card pair" + pairs[cards[id].id]);
 		cards[id].setAttribute("class", cards[id].getAttribute("class").substr(0, act) + cards[id].getAttribute("class").substr(act + 7, cards[id].getAttribute("class").length));
+		cards[id].firstChild.setAttribute("class", "card-back");
+		cards[id].lastChild.setAttribute("class", "card-front");
 		setTimeout(function(){
 			resetCard(id, pairs);
 		}, 200);
 	}
 	else{
-	cards[id].setAttribute("class", "card reset");
+	cards[id].setAttribute("class", "card-reset");
 	cards[id].addEventListener("click", flipCard, false);
 	var card = cards[id];
 	setTimeout(function() {
