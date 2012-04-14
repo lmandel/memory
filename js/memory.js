@@ -146,10 +146,18 @@ function reset(){
 }
 
 function resetGameboard(){
-	resetCard(0);
+	resetCard(0, pairs);
 }
 
-function resetCard(id){
+function resetCard(id, pairs){
+	if((act = cards[id].getAttribute("class").indexOf("active")) > 0){
+		//cards[id].setAttribute("class", "card pair" + pairs[cards[id].id]);
+		cards[id].setAttribute("class", cards[id].getAttribute("class").substr(0, act) + cards[id].getAttribute("class").substr(act + 7, cards[id].getAttribute("class").length));
+		setTimeout(function(){
+			resetCard(id, pairs);
+		}, 200);
+	}
+	else{
 	cards[id].setAttribute("class", "card reset");
 	cards[id].addEventListener("click", flipCard, false);
 	var card = cards[id];
@@ -158,8 +166,9 @@ function resetCard(id){
 		},2000);	
 	if((id+1) < numCards){
 		setTimeout(function(){
-			resetCard(id+1);
+			resetCard(id+1, pairs);
 		}, 250);
+	}
 	}
 }
 
