@@ -146,11 +146,20 @@ function reset(){
 }
 
 function resetGameboard(){
-	gameboardDiv = document.getElementById("gameboard");
-	
-	for(var i = 0; i < numCards; i++){
-		cards[i].setAttribute("class", "card");
-		cards[i].addEventListener("click", flipCard, false);
+	resetCard(0);
+}
+
+function resetCard(id){
+	cards[id].setAttribute("class", "card reset");
+	cards[id].addEventListener("click", flipCard, false);
+	var card = cards[id];
+	setTimeout(function() {
+		card.setAttribute("class", "card");
+		},2000);	
+	if((id+1) < numCards){
+		setTimeout(function(){
+			resetCard(id+1);
+		}, 250);
 	}
 }
 

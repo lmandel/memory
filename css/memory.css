@@ -122,6 +122,32 @@
 	-webkit-transform: rotateY(0deg);
 	-moz-transform: rotateY(0deg);
 }
+
+.card.reset {
+	-webkit-transform: rotateY(720deg);
+	-moz-transform: rotateY(720deg);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+    -o-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	-moz-transition: all 2s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.card.reset .front {
+	background-image: url(../images/fflogosmall.png);
+	-webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+
 body {
 	text-align: center;
 	background-image: url(../images/background.png);
