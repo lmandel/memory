@@ -175,7 +175,7 @@ function resetCard(id, pairs){
 	if((id+1) < numCards){
 		setTimeout(function(){
 			resetCard(id+1, pairs);
-		}, 250);
+		}, 200);
 	}
 	}
 }
